@@ -16,7 +16,7 @@ export interface WhatsAppWidgetProps {
 }
 
 export default function WhatsAppWidget({
-    phoneNumber = '919876543210',
+    phoneNumber = '+919898579707',
     message = 'Hello! I would like to inquire about your weighing solutions.',
 }: WhatsAppWidgetProps) {
     const encodedMessage = encodeURIComponent(message);

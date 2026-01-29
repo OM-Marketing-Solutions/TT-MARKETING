@@ -52,8 +52,8 @@ export default function ContactForm() {
     ];
 
     const contactInfo = [
-        { icon: Phone, label: 'Phone', value: '+91-9876543210', href: 'tel:+919876543210' },
-        { icon: Mail, label: 'Email', value: 'info@ttmarketing.com', href: 'mailto:info@ttmarketing.com' },
+        { icon: Phone, label: 'Phone', value: '+91-9898579707', href: 'tel:+91-9898579707' },
+        { icon: Mail, label: 'Email', value: 'ttmarketing999@gmail.com', href: 'mailto:ttmarketing999@gmail.com' },
         { icon: MapPin, label: 'Location', value: 'India', href: null },
         { icon: Clock, label: 'Hours', value: 'Mon-Sat: 9AM-6PM', href: null },
     ];
