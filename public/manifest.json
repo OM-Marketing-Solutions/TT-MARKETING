@@ -1,0 +1,10 @@
+{
+    "name": "TT Marketing - Precision Weighing Solutions",
+    "short_name": "TT Marketing",
+    "description": "Professional precision weighing solutions for industrial and commercial applications",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0f172a",
+    "theme_color": "#10b981",
+    "orientation": "portrait-primary"
+}
