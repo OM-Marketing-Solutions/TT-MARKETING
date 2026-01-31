@@ -350,17 +350,39 @@ export default function ContactForm() {
                         })}
 
                         {/* Owner Image */}
-                        <div className="glass-strong p-4 rounded-2xl border border-white/10 hover:border-emerald-500/30 transition-all duration-300">
+                        <div className="group glass-strong p-4 rounded-2xl border border-white/10 hover:border-emerald-500/50 transition-all duration-500 hover-lift animate-slide-in-up" style={{ animationDelay: '0.4s' }}>
                             <div className="relative w-full min-h-[32rem] rounded-xl overflow-hidden mb-4">
+                                {/* Gradient Overlay on Hover */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+
+                                {/* Glow Effect */}
+                                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-emerald-500 to-cyan-500 rounded-xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500" />
+
+                                {/* Image */}
                                 <img
                                     src="/images/mansuri.jpeg"
                                     alt="Mr. Tarif Mansuri - TT Marketing Owner"
-                                    className="w-full h-full object-cover object-center"
+                                    className="relative w-full h-full object-cover object-center rounded-xl transform group-hover:scale-105 transition-transform duration-700"
                                 />
+
+                                {/* Shimmer Effect */}
+                                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
                             </div>
-                            <div className="text-center pt-2">
-                                <h3 className="text-2xl font-black text-white tracking-wide">Mr. Tarif Mansuri</h3>
-                                <p className="text-sm text-emerald-400 font-semibold mt-1">Founder & Owner</p>
+
+                            {/* Owner Info */}
+                            <div className="text-center pt-2 relative">
+                                {/* Decorative Line */}
+                                <div className="w-16 h-1 bg-gradient-to-r from-blue-500 via-emerald-500 to-cyan-500 mx-auto mb-4 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+
+                                <h3 className="text-2xl font-black text-white tracking-wide group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-emerald-400 transition-all duration-300">
+                                    Mr. Tarif Mansuri
+                                </h3>
+                                <p className="text-sm text-emerald-400 font-semibold mt-1 group-hover:text-cyan-400 transition-colors duration-300">
+                                    Founder & Owner
+                                </p>
+
+                                {/* Glow Badge */}
+                                <div className="absolute -top-3 -right-3 w-20 h-20 bg-gradient-to-br from-blue-500/20 to-emerald-500/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 glow-blue" />
                             </div>
                         </div>
                     </div>
