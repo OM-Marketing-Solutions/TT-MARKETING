@@ -126,7 +126,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                             {/* Contact CTAs */}
                             <div className="flex flex-wrap gap-4">
                                 <a
-                                    href="#contact"
+                                    href="/contact"
                                     className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 via-emerald-600 to-cyan-600 animate-gradient text-white font-bold rounded-2xl hover-glow transition-all duration-500 shadow-2xl"
                                 >
                                     <MessageCircle className="w-5 h-5" />
@@ -218,7 +218,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                             </p>
                             <div className="flex flex-wrap gap-4 justify-center">
                                 <a
-                                    href="#contact"
+                                    href="/contact"
                                     className="group inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-blue-600 via-emerald-600 to-cyan-600 animate-gradient text-white font-bold text-lg rounded-2xl hover-glow transition-all duration-500 shadow-2xl"
                                 >
                                     <MessageCircle className="w-6 h-6" />

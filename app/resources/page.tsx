@@ -243,7 +243,7 @@ export default function ResourcesPage() {
                                     Email Support
                                 </Link>
                                 <Link
-                                    href="#contact"
+                                    href="/contact"
                                     className="inline-flex items-center gap-2 text-emerald-400 font-semibold hover:gap-4 transition-all mx-auto block w-fit"
                                 >
                                     Submit a Support Request

@@ -136,7 +136,7 @@ export default function CategoriesPage() {
                                 <ArrowRight className="w-5 h-5" />
                             </Link>
                             <Link
-                                href="/#contact"
+                                href="/contact"
                                 className="inline-flex items-center gap-2 px-8 py-4 glass border border-white/20 text-white font-bold rounded-xl hover:border-emerald-500/50 transition-all"
                             >
                                 Contact Us

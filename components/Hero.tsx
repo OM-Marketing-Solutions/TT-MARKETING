@@ -89,7 +89,7 @@ export default function Hero({
                             {/* CTA Buttons */}
                             <div className="flex flex-wrap gap-4 pt-4">
                                 <a
-                                    href="#contact"
+                                    href="/contact"
                                     className="group relative inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-blue-600 via-emerald-600 to-cyan-600 animate-gradient text-white font-bold rounded-2xl overflow-hidden hover-glow transition-all duration-500 shadow-2xl"
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />

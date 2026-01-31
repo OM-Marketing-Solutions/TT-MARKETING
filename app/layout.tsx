@@ -203,7 +203,7 @@ export default function RootLayout({
               </li>
               <li>
                 <Link
-                  href="#contact"
+                  href="/contact"
                   className="bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white px-5 py-2 rounded-lg font-medium transition-smooth focus-visible:outline-2 focus-visible:outline-offset-2"
                 >
                   Contact

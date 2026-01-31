@@ -76,7 +76,7 @@ export default function ProductsPage() {
                                 <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
                             </a>
                             <a
-                                href="#contact"
+                                href="/contact"
                                 className="group inline-flex items-center gap-3 px-10 py-5 glass-strong hover:bg-white/10 border border-white/20 hover:border-blue-500/50 text-white font-bold rounded-2xl transition-all duration-300 hover-lift"
                             >
                                 <Phone className="w-6 h-6" />
@@ -97,8 +97,8 @@ export default function ProductsPage() {
                         <Link
                             href="/products"
                             className={`px-4 py-2 rounded-xl font-semibold transition-all ${!selectedCategory
-                                    ? 'bg-gradient-to-r from-blue-600 to-emerald-600 text-white'
-                                    : 'glass border border-white/10 text-gray-400 hover:text-white hover:border-emerald-500/50'
+                                ? 'bg-gradient-to-r from-blue-600 to-emerald-600 text-white'
+                                : 'glass border border-white/10 text-gray-400 hover:text-white hover:border-emerald-500/50'
                                 }`}
                         >
                             All Products ({allProducts.length})
@@ -109,8 +109,8 @@ export default function ProductsPage() {
                                 key={category}
                                 href={`/products?category=${encodeURIComponent(category)}`}
                                 className={`px-4 py-2 rounded-xl font-semibold transition-all ${selectedCategory === category
-                                        ? 'bg-gradient-to-r from-blue-600 to-emerald-600 text-white'
-                                        : 'glass border border-white/10 text-gray-400 hover:text-white hover:border-emerald-500/50'
+                                    ? 'bg-gradient-to-r from-blue-600 to-emerald-600 text-white'
+                                    : 'glass border border-white/10 text-gray-400 hover:text-white hover:border-emerald-500/50'
                                     }`}
                             >
                                 {category} ({getProductsByCategory(category).length})
@@ -225,7 +225,7 @@ export default function ProductsPage() {
                                 We offer custom weighing solutions tailored to your specific requirements. Contact our team for expert consultation.
                             </p>
                             <a
-                                href="#contact"
+                                href="/contact"
                                 className="group inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-blue-600 via-emerald-600 to-cyan-600 animate-gradient text-white font-bold text-lg rounded-2xl hover-glow transition-all duration-500 shadow-2xl"
                             >
                                 <span>Request Custom Quote</span>
