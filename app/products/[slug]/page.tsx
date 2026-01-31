@@ -176,31 +176,20 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                                 Technical Specifications
                             </h2>
                             <div className="space-y-4">
-                                <SpecRow label="Maximum Capacity" value={product.specifications.maxCapacity} />
-                                <SpecRow label="Minimum Weight" value={product.specifications.minWeight} />
-                                <SpecRow label="Accuracy / Precision" value={product.specifications.accuracy} />
-                                <SpecRow label="Weighing Range" value={product.specifications.weighingRange} />
-                                <SpecRow label="Max Load Tolerance" value={product.specifications.maxLoadTolerance} />
-                                <SpecRow label="Material" value={product.specifications.material} />
-
-                                {/* Dimensions */}
-                                <div className="pt-4 border-t border-white/10">
-                                    <h3 className="text-sm font-bold text-emerald-400 uppercase tracking-wide mb-3">Dimensions</h3>
-                                    <div className="grid grid-cols-3 gap-3">
-                                        <div className="glass p-3 rounded-lg border border-white/10">
-                                            <p className="text-xs text-gray-500 mb-1">Height</p>
-                                            <p className="text-white font-bold">{product.specifications.dimensions.height}</p>
-                                        </div>
-                                        <div className="glass p-3 rounded-lg border border-white/10">
-                                            <p className="text-xs text-gray-500 mb-1">Width</p>
-                                            <p className="text-white font-bold">{product.specifications.dimensions.width}</p>
-                                        </div>
-                                        <div className="glass p-3 rounded-lg border border-white/10">
-                                            <p className="text-xs text-gray-500 mb-1">Length</p>
-                                            <p className="text-white font-bold">{product.specifications.dimensions.length}</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <SpecRow label="Capacity" value={product.specifications.capacity} />
+                                <SpecRow label="Accuracy" value={product.specifications.accuracy} />
+                                {product.specifications.platform && (
+                                    <SpecRow label="Platform" value={product.specifications.platform} />
+                                )}
+                                {product.specifications.display && (
+                                    <SpecRow label="Display" value={product.specifications.display} />
+                                )}
+                                {product.specifications.power && (
+                                    <SpecRow label="Power" value={product.specifications.power} />
+                                )}
+                                {product.specifications.material && (
+                                    <SpecRow label="Material" value={product.specifications.material} />
+                                )}
                             </div>
                         </div>
                     </div>
