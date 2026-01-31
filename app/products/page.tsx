@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
@@ -16,7 +16,7 @@ import { ArrowRight, Package, Sparkles, Phone, Filter } from 'lucide-react';
  * - Responsive design
  */
 
-export default function ProductsPage() {
+function ProductsContent() {
     const searchParams = useSearchParams();
     const selectedCategory = searchParams.get('category');
 
@@ -236,5 +236,20 @@ export default function ProductsPage() {
                 </div>
             </section>
         </>
+    );
+}
+
+export default function ProductsPage() {
+    return (
+        <Suspense fallback={
+            <div className="pt-24 min-h-screen bg-black flex items-center justify-center">
+                <div className="text-center">
+                    <div className="inline-block w-16 h-16 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin mb-4" />
+                    <p className="text-white text-lg">Loading products...</p>
+                </div>
+            </div>
+        }>
+            <ProductsContent />
+        </Suspense>
     );
 }
