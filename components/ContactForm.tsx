@@ -54,8 +54,6 @@ export default function ContactForm() {
     const contactInfo = [
         { icon: Phone, label: 'Phone', value: '+91-9898579707', href: 'tel:+91-9898579707' },
         { icon: Mail, label: 'Email', value: 'ttmarketing999@gmail.com', href: 'mailto:ttmarketing999@gmail.com' },
-        { icon: MapPin, label: 'Location', value: 'India', href: null },
-        { icon: Clock, label: 'Hours', value: 'Mon-Sat: 9AM-6PM', href: null },
     ];
 
     const validate = (): boolean => {
@@ -327,11 +325,11 @@ export default function ContactForm() {
                     </div>
 
                     {/* Contact Info - Right Side (2 columns) */}
-                    <div className="lg:col-span-2 space-y-6 animate-slide-in-up" style={{ animationDelay: '0.3s' }}>
+                    <div className="lg:col-span-2 space-y-4 animate-slide-in-up" style={{ animationDelay: '0.3s' }}>
                         {contactInfo.map((info, index) => {
                             const Icon = info.icon;
                             const content = (
-                                <div className="glass-strong p-6 rounded-2xl border border-white/10 hover:border-blue-500/50 transition-all duration-300 hover-lift h-full">
+                                <div className="glass-strong p-4 rounded-2xl border border-white/10 hover:border-blue-500/50 transition-all duration-300 hover-lift">
                                     <div className="flex items-start gap-4">
                                         <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-xl flex items-center justify-center">
                                             <Icon className="w-6 h-6 text-white" />
@@ -350,6 +348,17 @@ export default function ContactForm() {
                                 <div key={index}>{content}</div>
                             );
                         })}
+
+                        {/* Owner Image */}
+                        <div className="glass-strong p-4 rounded-2xl border border-white/10 hover:border-emerald-500/30 transition-all duration-300">
+                            <div className="relative w-full min-h-[32rem] rounded-xl overflow-hidden">
+                                <img
+                                    src="/images/mansuri.jpeg"
+                                    alt="TT Marketing - Owner"
+                                    className="w-full h-full object-cover object-center"
+                                />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

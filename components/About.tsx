@@ -157,23 +157,6 @@ export default function About() {
                         </div>
                     </div>
                 </div>
-
-                {/* Bottom CTA */}
-                <div className="text-center animate-slide-in-up" style={{ animationDelay: '0.4s' }}>
-                    <div className="inline-flex flex-col items-center gap-6 glass-strong p-10 rounded-3xl border border-white/20">
-                        <h4 className="text-3xl font-bold text-white">
-                            Ready to Get Started?
-                        </h4>
-                        <a
-                            href="#contact"
-                            className="group inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-blue-600 via-emerald-600 to-cyan-600 animate-gradient text-white font-bold text-lg rounded-2xl hover-glow transition-all duration-500 shadow-2xl relative overflow-hidden"
-                        >
-                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                            <span className="relative z-10">Contact Us Today</span>
-                            <Shield className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300 relative z-10" />
-                        </a>
-                    </div>
-                </div>
             </div>
         </section>
     );

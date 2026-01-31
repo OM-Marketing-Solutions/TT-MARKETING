@@ -1,121 +1,173 @@
 import React from 'react';
 import Link from 'next/link';
-import Container from './Container';
+import { MapPin, Phone, Mail, Facebook, Instagram, Sparkles } from 'lucide-react';
 
 /**
- * Footer Component
+ * Footer Component - Redesigned with Glassmorphism
  * 
- * Mobile-first footer with company info, links, and social media
+ * Matches the dark theme with glass effects used throughout the site
+ * - Modern glassmorphism aesthetic
+ * - Gradient accents and hover effects
  * - Responsive grid layout
- * - Accessible links with proper focus states
- * - SEO-friendly structure
  */
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
 
+    const quickLinks = [
+        { label: 'Home', href: '/' },
+        { label: 'Products', href: '/products' },
+        { label: 'About', href: '#about' },
+        { label: 'Contact', href: '#contact' },
+    ];
+
+    const contactInfo = [
+        { icon: Phone, label: '+91 98985 79707', href: 'tel:+919898579707' },
+        { icon: Mail, label: 'ttmarketing999@gmail.com', href: 'mailto:ttmarketing999@gmail.com' },
+        { icon: MapPin, label: 'Kapadvanj, Gujarat, India', href: null },
+    ];
+
+    const socialLinks = [
+        {
+            icon: Facebook,
+            label: 'Facebook',
+            href: 'https://facebook.com',
+            color: 'from-blue-500 to-blue-600'
+        },
+        {
+            icon: Instagram,
+            label: 'Instagram',
+            href: 'https://www.instagram.com/mansuri_tarif999',
+            color: 'from-pink-500 via-purple-500 to-orange-500'
+        },
+    ];
+
     return (
-        <footer className="bg-[var(--color-secondary-dark)] text-white py-8 md:py-12">
-            <Container>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <footer className="relative bg-black overflow-hidden border-t border-white/10">
+            {/* Animated Background */}
+            <div className="absolute inset-0">
+                <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-blue-500 opacity-10 blur-[100px] rounded-full animate-pulse-glow" />
+                <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-emerald-500 opacity-10 blur-[100px] rounded-full animate-pulse-glow" style={{ animationDelay: '1.5s' }} />
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(16,185,129,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
+            </div>
+
+            <div className="container-constraint relative z-10 py-16">
+                {/* Main Footer Content */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                     {/* Company Info */}
-                    <div>
-                        <h3 className="text-xl font-bold mb-4">TT Marketing</h3>
-                        <p className="text-gray-300 text-sm leading-relaxed">
-                            Your trusted partner for innovative marketing solutions and business growth.
+                    <div className="space-y-6">
+                        <div className="inline-flex items-center gap-2 glass-strong px-4 py-2 rounded-xl border border-white/10">
+                            <Sparkles className="w-5 h-5 text-emerald-400" />
+                            <h3 className="text-xl font-black text-white">TT Marketing</h3>
+                        </div>
+                        <p className="text-gray-400 leading-relaxed">
+                            Precision weighing solutions engineered for accuracy, durability, and long-term performance across industries.
                         </p>
+                        <div className="pt-4">
+                            <p className="text-sm text-gray-500 mb-2">Business Hours</p>
+                            <p className="text-white font-semibold">Mon-Sat: 9AM - 6PM</p>
+                        </div>
                     </div>
 
                     {/* Quick Links */}
-                    <div>
-                        <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-                        <ul className="space-y-2">
-                            <li>
-                                <Link
-                                    href="/"
-                                    className="text-gray-300 hover:text-[var(--color-accent)] transition-smooth focus-visible:outline-2 focus-visible:outline-offset-2"
-                                >
-                                    Home
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="#products"
-                                    className="text-gray-300 hover:text-[var(--color-accent)] transition-smooth focus-visible:outline-2 focus-visible:outline-offset-2"
-                                >
-                                    Products
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="#about"
-                                    className="text-gray-300 hover:text-[var(--color-accent)] transition-smooth focus-visible:outline-2 focus-visible:outline-offset-2"
-                                >
-                                    About
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="#contact"
-                                    className="text-gray-300 hover:text-[var(--color-accent)] transition-smooth focus-visible:outline-2 focus-visible:outline-offset-2"
-                                >
-                                    Contact
-                                </Link>
-                            </li>
+                    <div className="space-y-6">
+                        <h4 className="text-lg font-bold text-white flex items-center gap-2">
+                            <div className="w-1 h-6 bg-gradient-to-b from-blue-500 to-emerald-500 rounded-full" />
+                            Quick Links
+                        </h4>
+                        <ul className="space-y-3">
+                            {quickLinks.map((link, index) => (
+                                <li key={index}>
+                                    <Link
+                                        href={link.href}
+                                        className="group inline-flex items-center gap-2 text-gray-400 hover:text-white transition-all duration-300"
+                                    >
+                                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                        <span className="group-hover:translate-x-1 transition-transform">
+                                            {link.label}
+                                        </span>
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
                     {/* Contact Info */}
-                    <div>
-                        <h4 className="text-lg font-semibold mb-4">Contact</h4>
-                        <ul className="space-y-2 text-gray-300 text-sm">
-                            <li>
-                                <a
-                                    href="mailto:contact@ttmarketing.com"
-                                    className="hover:text-[var(--color-accent)] transition-smooth focus-visible:outline-2 focus-visible:outline-offset-2"
-                                >
-                                    ttmarketing999@gmail.com
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="tel:+1234567890"
-                                    className="hover:text-[var(--color-accent)] transition-smooth focus-visible:outline-2 focus-visible:outline-offset-2"
-                                >
-                                    +91 98985 79707
-                                </a>
-                            </li>
-                            <li className="text-gray-300">
-                                Kapadvanj, Gujarat
-                            </li>
+                    <div className="space-y-6">
+                        <h4 className="text-lg font-bold text-white flex items-center gap-2">
+                            <div className="w-1 h-6 bg-gradient-to-b from-blue-500 to-emerald-500 rounded-full" />
+                            Get In Touch
+                        </h4>
+                        <ul className="space-y-4">
+                            {contactInfo.map((item, index) => {
+                                const Icon = item.icon;
+                                const content = (
+                                    <div className="group flex items-start gap-3 text-gray-400 hover:text-white transition-colors duration-300">
+                                        <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-blue-500/20 to-emerald-500/20 rounded-lg flex items-center justify-center border border-white/10 group-hover:border-emerald-500/50 transition-all duration-300">
+                                            <Icon className="w-5 h-5 text-emerald-400" />
+                                        </div>
+                                        <span className="text-sm pt-2">{item.label}</span>
+                                    </div>
+                                );
+
+                                return item.href ? (
+                                    <li key={index}>
+                                        <a href={item.href}>{content}</a>
+                                    </li>
+                                ) : (
+                                    <li key={index}>{content}</li>
+                                );
+                            })}
                         </ul>
                     </div>
 
                     {/* Social Media */}
-                    <div>
-                        <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
-                        <div className="flex space-x-4">
-                            <a
-                                href="https://facebook.com"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-gray-300 hover:text-[var(--color-accent)] transition-smooth focus-visible:outline-2 focus-visible:outline-offset-2"
-                                aria-label="Follow us on Facebook"
-                            >
-                                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
-                                </svg>
-                            </a>
-                        
+                    <div className="space-y-6">
+                        <h4 className="text-lg font-bold text-white flex items-center gap-2">
+                            <div className="w-1 h-6 bg-gradient-to-b from-blue-500 to-emerald-500 rounded-full" />
+                            Follow Us
+                        </h4>
+                        <div className="flex gap-3">
+                            {socialLinks.map((social, index) => {
+                                const Icon = social.icon;
+                                return (
+                                    <a
+                                        key={index}
+                                        href={social.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label={social.label}
+                                        className="group relative"
+                                    >
+                                        <div className={`w-12 h-12 bg-gradient-to-br ${social.color} rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-6 shadow-lg hover:shadow-2xl`}>
+                                            <Icon className="w-6 h-6 text-white" />
+                                        </div>
+                                        {/* Glow effect */}
+                                        <div className={`absolute inset-0 bg-gradient-to-br ${social.color} rounded-xl opacity-0 group-hover:opacity-50 blur-xl transition-opacity duration-300 -z-10`} />
+                                    </a>
+                                );
+                            })}
                         </div>
+                        <p className="text-sm text-gray-500 pt-4">
+                            Stay connected for updates, promotions, and industry insights.
+                        </p>
                     </div>
                 </div>
 
-                {/* Copyright */}
-                <div className="border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
-                    <p>&copy; {currentYear} TT Marketing. All rights reserved.</p>
+                {/* Bottom Bar */}
+                <div className="glass-strong rounded-2xl border border-white/10 p-6">
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
+                        <p className="text-gray-400">
+                            © {currentYear} <span className="text-white font-semibold">TT Marketing</span>. All rights reserved.
+                        </p>
+                        <div className="flex items-center gap-6 text-gray-400">
+                            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+                            <span className="text-gray-700">•</span>
+                            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+                        </div>
+                    </div>
                 </div>
-            </Container>
+            </div>
         </footer>
     );
 }

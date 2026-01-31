@@ -146,11 +146,6 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
-        {/* Skip to main content link for keyboard navigation */}
-        <a href="#main-content" className="skip-to-content">
-          Skip to main content
-        </a>
-
         {/* Header with navigation - Sticky with backdrop blur */}
         <header className="sticky top-0 z-30 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm transition-all">
           <nav
@@ -160,16 +155,23 @@ export default function RootLayout({
             {/* Logo - Compact */}
             <Link
               href="/"
-              className="text-lg md:text-xl font-bold text-[var(--color-primary)] focus-visible:outline-2 focus-visible:outline-offset-2"
+              className="flex items-center gap-3 focus-visible:outline-2 focus-visible:outline-offset-2 hover:opacity-90 transition-opacity"
             >
-              TT Marketing
+              <img
+                src="/images/ttmarketing_logo.png"
+                alt="TT Marketing Logo"
+                className="h-8 md:h-10 w-auto max-h-10 max-w-[120px] object-contain"
+              />
+              <span className="text-lg md:text-xl font-bold text-emerald-400">
+                TT Marketing
+              </span>
             </Link>
 
             {/* Desktop Navigation - Product/Pricing/Blog/Resources/Contact */}
             <ul className="hidden lg:flex items-center space-x-6">
               <li>
                 <Link
-                  href="#products"
+                  href="/products"
                   className="text-gray-700 dark:text-gray-200 hover:text-[var(--color-primary)] dark:hover:text-[var(--color-accent)] font-medium transition-smooth focus-visible:outline-2 focus-visible:outline-offset-2"
                 >
                   Products
@@ -177,7 +179,7 @@ export default function RootLayout({
               </li>
               <li>
                 <Link
-                  href="#pricing"
+                  href="/pricing"
                   className="text-gray-700 dark:text-gray-200 hover:text-[var(--color-primary)] dark:hover:text-[var(--color-accent)] font-medium transition-smooth focus-visible:outline-2 focus-visible:outline-offset-2"
                 >
                   Pricing
@@ -185,7 +187,7 @@ export default function RootLayout({
               </li>
               <li>
                 <Link
-                  href="#blog"
+                  href="/blog"
                   className="text-gray-700 dark:text-gray-200 hover:text-[var(--color-primary)] dark:hover:text-[var(--color-accent)] font-medium transition-smooth focus-visible:outline-2 focus-visible:outline-offset-2"
                 >
                   Blog
@@ -193,7 +195,7 @@ export default function RootLayout({
               </li>
               <li>
                 <Link
-                  href="#resources"
+                  href="/resources"
                   className="text-gray-700 dark:text-gray-200 hover:text-[var(--color-primary)] dark:hover:text-[var(--color-accent)] font-medium transition-smooth focus-visible:outline-2 focus-visible:outline-offset-2"
                 >
                   Resources

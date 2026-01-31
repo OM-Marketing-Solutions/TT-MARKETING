@@ -20,10 +20,10 @@ interface NavLink {
 }
 
 const navLinks: NavLink[] = [
-    { label: 'Products', href: '#products' },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'Blog', href: '#blog' },
-    { label: 'Resources', href: '#resources' },
+    { label: 'Products', href: '/products' },
+    { label: 'Pricing', href: '/pricing' },
+    { label: 'Blog', href: '/blog' },
+    { label: 'Resources', href: '/resources' },
     { label: 'Contact', href: '#contact' },
 ];
 
@@ -94,7 +94,7 @@ export default function NavMobile() {
                     {/* Navigation Links */}
                     <ul className="space-y-4">
                         {navLinks.map((link) => (
-                            <li key={link.href}>
+                            <li key={link.label}>
                                 <Link
                                     href={link.href}
                                     onClick={closeMenu}
