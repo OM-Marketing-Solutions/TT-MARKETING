@@ -351,12 +351,16 @@ export default function ContactForm() {
 
                         {/* Owner Image */}
                         <div className="glass-strong p-4 rounded-2xl border border-white/10 hover:border-emerald-500/30 transition-all duration-300">
-                            <div className="relative w-full min-h-[32rem] rounded-xl overflow-hidden">
+                            <div className="relative w-full min-h-[32rem] rounded-xl overflow-hidden mb-4">
                                 <img
                                     src="/images/mansuri.jpeg"
-                                    alt="TT Marketing - Owner"
+                                    alt="Mr. Tarif Mansuri - TT Marketing Owner"
                                     className="w-full h-full object-cover object-center"
                                 />
+                            </div>
+                            <div className="text-center pt-2">
+                                <h3 className="text-2xl font-black text-white tracking-wide">Mr. Tarif Mansuri</h3>
+                                <p className="text-sm text-emerald-400 font-semibold mt-1">Founder & Owner</p>
                             </div>
                         </div>
                     </div>

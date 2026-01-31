@@ -79,7 +79,7 @@ export default function AboutPage() {
                             </h2>
 
                             <p className="text-lg text-gray-300 leading-relaxed">
-                                Since our establishment in <span className="text-emerald-400 font-bold">2019</span>, TT Marketing has been committed to providing high-quality weighing solutions to businesses across various industries. We understand that precision matters in your operations, and we take pride in delivering weighing scales that meet your exact requirements.
+                                Since our establishment in <span className="text-emerald-400 font-bold">2019</span>, TT Marketing has been committed to providing high-quality weighing solutions to businesses across various industries. Under the leadership of <span className="text-white font-bold">Mr. Tarif Mansuri</span>, we understand that precision matters in your operations, and we take pride in delivering weighing scales that meet your exact requirements.
                             </p>
 
                             <p className="text-lg text-gray-300 leading-relaxed">
