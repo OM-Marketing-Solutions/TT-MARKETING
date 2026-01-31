@@ -1,27 +1,32 @@
-import type { Metadata } from 'next';
+'use client';
+
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getAllProducts } from '@/lib/productsData';
-import { ArrowRight, Package, Sparkles, Phone } from 'lucide-react';
+import { useSearchParams } from 'next/navigation';
+import { getAllProducts, getCategories, getProductsByCategory } from '@/lib/productsData';
+import { ArrowRight, Package, Sparkles, Phone, Filter } from 'lucide-react';
 
 /**
- * Products Listing Page
+ * Products Listing Page with Category Filtering
  * 
- * Displays all product categories with:
- * - SEO-optimized metadata
- * - Grid layout with product cards
- * - Links to individual product detail pages
- * - Call-to-action buttons
+ * Displays products with:
+ * - Category filtering via URL query params
+ * - Dynamic product grid
+ * - Responsive design
  */
 
-export const metadata: Metadata = {
-    title: 'Products - Precision Weighing Solutions',
-    description: 'Explore our complete range of precision weighing solutions: digital table top scales, receipt printer scales, industrial platform scales, floor weighing systems, and heavy-duty industrial equipment.',
-    keywords: ['weighing scales', 'industrial scales', 'digital weighing', 'platform scales', 'floor scales', 'precision weighing'],
-};
-
 export default function ProductsPage() {
-    const products = getAllProducts();
+    const searchParams = useSearchParams();
+    const selectedCategory = searchParams.get('category');
+
+    const allProducts = getAllProducts();
+    const categories = getCategories();
+
+    // Filter products based on selected category
+    const displayedProducts = selectedCategory
+        ? getProductsByCategory(selectedCategory)
+        : allProducts;
 
     return (
         <>
@@ -39,19 +44,26 @@ export default function ProductsPage() {
                         {/* Badge */}
                         <div className="inline-flex items-center gap-2 px-5 py-2.5 glass-strong rounded-full border border-white/20">
                             <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse-glow" />
-                            <span className="text-sm font-bold text-white tracking-wider uppercase">Product Catalog</span>
+                            <span className="text-sm font-bold text-white tracking-wider uppercase">
+                                {selectedCategory || 'All Products'}
+                            </span>
                             <Sparkles className="w-4 h-4 text-emerald-400" />
                         </div>
 
                         {/* Headline */}
                         <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight text-shadow">
-                            <span className="block mb-2">Our Complete Range of</span>
+                            <span className="block mb-2">
+                                {selectedCategory ? selectedCategory : 'Our Complete Range of'}
+                            </span>
                             <span className="block gradient-text-animated">Weighing Solutions</span>
                         </h1>
 
                         {/* Description */}
                         <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light">
-                            From compact digital scales to heavy-duty industrial systems – precision-engineered solutions for every weighing requirement.
+                            {selectedCategory
+                                ? `Explore our ${displayedProducts.length} ${selectedCategory.toLowerCase()} products`
+                                : 'From compact digital scales to heavy-duty industrial systems – precision-engineered solutions for every weighing requirement.'
+                            }
                         </p>
 
                         {/* CTA */}
@@ -75,6 +87,39 @@ export default function ProductsPage() {
                 </div>
             </section>
 
+            {/* Category Filter Pills */}
+            <section className="relative py-8 bg-black border-b border-white/10">
+                <div className="container-constraint">
+                    <div className="flex items-center gap-4 flex-wrap">
+                        <Filter className="w-5 h-5 text-emerald-400" />
+                        <span className="text-white font-bold">Filter by Category:</span>
+
+                        <Link
+                            href="/products"
+                            className={`px-4 py-2 rounded-xl font-semibold transition-all ${!selectedCategory
+                                    ? 'bg-gradient-to-r from-blue-600 to-emerald-600 text-white'
+                                    : 'glass border border-white/10 text-gray-400 hover:text-white hover:border-emerald-500/50'
+                                }`}
+                        >
+                            All Products ({allProducts.length})
+                        </Link>
+
+                        {categories.map((category) => (
+                            <Link
+                                key={category}
+                                href={`/products?category=${encodeURIComponent(category)}`}
+                                className={`px-4 py-2 rounded-xl font-semibold transition-all ${selectedCategory === category
+                                        ? 'bg-gradient-to-r from-blue-600 to-emerald-600 text-white'
+                                        : 'glass border border-white/10 text-gray-400 hover:text-white hover:border-emerald-500/50'
+                                    }`}
+                            >
+                                {category} ({getProductsByCategory(category).length})
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* Products Grid Section */}
             <section id="products-grid" className="relative py-32 bg-black overflow-hidden">
                 {/* Background */}
@@ -85,9 +130,17 @@ export default function ProductsPage() {
                 </div>
 
                 <div className="container-constraint relative z-10">
+                    {/* Products Count */}
+                    <div className="text-center mb-12">
+                        <p className="text-gray-400 text-lg">
+                            Showing <span className="text-emerald-400 font-bold">{displayedProducts.length}</span> product{displayedProducts.length !== 1 ? 's' : ''}
+                            {selectedCategory && <> in <span className="text-white font-bold">{selectedCategory}</span></>}
+                        </p>
+                    </div>
+
                     {/* Products Grid */}
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {products.map((product, index) => (
+                        {displayedProducts.map((product, index) => (
                             <Link
                                 key={product.id}
                                 href={`/products/${product.slug}`}
@@ -148,6 +201,21 @@ export default function ProductsPage() {
                             </Link>
                         ))}
                     </div>
+
+                    {/* No Results */}
+                    {displayedProducts.length === 0 && (
+                        <div className="text-center py-20">
+                            <Package className="w-16 h-16 text-gray-600 mx-auto mb-4" />
+                            <h3 className="text-2xl font-bold text-white mb-2">No products found</h3>
+                            <p className="text-gray-400 mb-8">Try selecting a different category</p>
+                            <Link
+                                href="/products"
+                                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-emerald-600 text-white font-bold rounded-xl hover:shadow-lg transition-all"
+                            >
+                                View All Products
+                            </Link>
+                        </div>
+                    )}
 
                     {/* Bottom CTA */}
                     <div className="text-center mt-20">

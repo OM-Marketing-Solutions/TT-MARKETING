@@ -83,8 +83,8 @@ export default function HomePage() {
         subheadline="TT Marketing"
         headline="Precision Weighing Solutions for Industrial & Commercial Excellence"
         subcopy="High-performance digital weighing scales, industrial platforms, receipt printer scales, and heavy-duty weighing systems — engineered for accuracy, durability, and long-term performance."
-        imageSrc="/PRODUCTS/WhatsApp Image 2026-01-21 at 11.09.59.jpeg"
-        imageAlt="High-performance precision weighing scales and industrial platforms"
+        imageSrc="/hero-weighing-premium.png"
+        imageAlt="Premium precision weighing scales and industrial platforms"
         phoneNumber="+91-9876543210"
       />
 

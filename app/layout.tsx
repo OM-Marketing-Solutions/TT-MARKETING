@@ -179,18 +179,18 @@ export default function RootLayout({
               </li>
               <li>
                 <Link
-                  href="/pricing"
+                  href="/about"
                   className="text-gray-700 dark:text-gray-200 hover:text-[var(--color-primary)] dark:hover:text-[var(--color-accent)] font-medium transition-smooth focus-visible:outline-2 focus-visible:outline-offset-2"
                 >
-                  Pricing
+                  About Us
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/blog"
+                  href="/categories"
                   className="text-gray-700 dark:text-gray-200 hover:text-[var(--color-primary)] dark:hover:text-[var(--color-accent)] font-medium transition-smooth focus-visible:outline-2 focus-visible:outline-offset-2"
                 >
-                  Blog
+                  Categories
                 </Link>
               </li>
               <li>
