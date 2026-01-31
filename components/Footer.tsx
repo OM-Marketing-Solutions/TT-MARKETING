@@ -32,7 +32,7 @@ export default function Footer() {
         {
             icon: Facebook,
             label: 'Facebook',
-            href: 'https://facebook.com',
+            href: 'https://www.facebook.com/tarif.mansuri.3#',
             color: 'from-blue-500 to-blue-600'
         },
         {
