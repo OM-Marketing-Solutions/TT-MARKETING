@@ -76,16 +76,20 @@ export default function NavMobile() {
                 {isOpen ? <X size={24} className="text-white" /> : <Menu size={24} className="text-white" />}
             </button>
 
-            {/* Mobile Menu Overlay - Dark backdrop */}
+            {/* Mobile Menu Overlay - SOLID Dark backdrop */}
             {isOpen && (
                 <div
-                    className="fixed inset-0 bg-black/80 backdrop-blur-sm z-40 lg:hidden animate-fade-in"
+                    className="fixed inset-0 z-40 lg:hidden animate-fade-in"
                     onClick={closeMenu}
                     aria-hidden="true"
+                    style={{
+                        backgroundColor: 'rgba(0, 0, 0, 0.95)',
+                        backdropFilter: 'blur(10px)',
+                    }}
                 />
             )}
 
-            {/* Mobile Menu Slide-in Panel */}
+            {/* Mobile Menu Slide-in Panel - COMPLETELY SOLID */}
             <nav
                 id="mobile-menu"
                 className={`fixed top-0 right-0 bottom-0 w-80 shadow-2xl z-50 transform transition-all duration-300 ease-out lg:hidden ${isOpen ? 'translate-x-0' : 'translate-x-full'
@@ -96,11 +100,14 @@ export default function NavMobile() {
                     borderLeft: '2px solid rgba(16, 185, 129, 0.5)',
                 }}
             >
-                {/* Gradient Glow Effect */}
-                <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-emerald-500/5 to-transparent pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-blue-500/5 to-transparent pointer-events-none" />
+                {/* Additional Solid Black Layer */}
+                <div className="absolute inset-0 bg-black pointer-events-none" style={{ zIndex: 1 }} />
 
-                <div className="relative h-full flex flex-col p-6">
+                {/* Gradient Glow Effect - Very Subtle */}
+                <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-emerald-500/5 to-transparent pointer-events-none" style={{ zIndex: 2 }} />
+                <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-blue-500/5 to-transparent pointer-events-none" style={{ zIndex: 2 }} />
+
+                <div className="relative h-full flex flex-col p-6" style={{ zIndex: 10 }}>
                     {/* Close Button - Top Right - Clearly Visible */}
                     <button
                         onClick={closeMenu}
