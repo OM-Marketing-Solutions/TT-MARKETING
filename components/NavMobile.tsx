@@ -88,16 +88,17 @@ export default function NavMobile() {
             {/* Mobile Menu Slide-in Panel */}
             <nav
                 id="mobile-menu"
-                className={`fixed top-0 right-0 bottom-0 w-80 bg-gradient-to-br from-gray-900 via-black to-gray-900 shadow-2xl z-50 transform transition-all duration-300 ease-out lg:hidden ${isOpen ? 'translate-x-0' : 'translate-x-full'
+                className={`fixed top-0 right-0 bottom-0 w-80 shadow-2xl z-50 transform transition-all duration-300 ease-out lg:hidden ${isOpen ? 'translate-x-0' : 'translate-x-full'
                     }`}
                 aria-label="Mobile navigation"
                 style={{
-                    borderLeft: '1px solid rgba(16, 185, 129, 0.2)',
+                    backgroundColor: '#000000',
+                    borderLeft: '2px solid rgba(16, 185, 129, 0.5)',
                 }}
             >
                 {/* Gradient Glow Effect */}
-                <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-emerald-500/10 to-transparent pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-blue-500/10 to-transparent pointer-events-none" />
+                <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-emerald-500/5 to-transparent pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-blue-500/5 to-transparent pointer-events-none" />
 
                 <div className="relative h-full flex flex-col p-6">
                     {/* Close Button - Top Right - Clearly Visible */}
